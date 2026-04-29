@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Product+Sans&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-primary: hsl(var(--primary));
+  --color-secondary: hsl(var(--secondary));
+  --color-muted: hsl(var(--muted));
+  --color-accent: hsl(var(--accent));
+  --color-destructive: hsl(var(--destructive));
+}
+
+:root {
+--background: 0 0% 100%;       /* #ffffff */
+  --foreground: 210 4% 16%;     /* #202124 */
+  --border: 0 0% 89.8%;
+  --primary: 0 0% 0%;
+  --secondary: 0 0% 96.1%;
+  --muted: 0 0% 89.8%;
+  --accent: 0 0% 3.9%;
+  --destructive: 0 4.9% 60%;
+}
+
+.dark {
+--background: 220 6% 13%;     /* #202124 */
+  --foreground: 0 0% 91%;       /* #e8eaed */
+  --border: 220 6% 24%;
+  --primary: 0 0% 100%;
+  --secondary: 220 6% 21%;
+  --muted: 220 6% 24%;
+  --accent: 0 0% 91%;
+  --destructive: 0 84.9% 60.2%;
+}
+
+@layer base {
+  * {
+    @apply border-[color:var(--color-border)];
+  }
+  body {
+    margin: 0;
+    font-family: "Inter", "Roboto", sans-serif;
+    @apply bg-background text-foreground;
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-logo {
+  font-family: "Product Sans", "Inter", system-ui, sans-serif;
+}
