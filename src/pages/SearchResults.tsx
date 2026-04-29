@@ -624,7 +624,7 @@ const SearchResults: React.FC = () => {
                         href={SOCIAL_LINKS.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-[#1a0dab] dark:text-[#8ab4f8] hover:underline"
+                        className="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline"
                       >
                         @abhinavv016
                       </a>
