@@ -319,8 +319,8 @@ const ContactPanel: React.FC = () => {
   };
 
   const items = [
-    { icon: FaEnvelope, label: "Email", value: "your-email@example.com", href: `mailto:your-email@example.com`, color: "#EA4335" },
-    { icon: FaPhone, label: "Phone", value: "+91 XXXXX XXXXX", href: `tel:+91XXXXXXXXXX`, color: "#34A853" },
+    { icon: FaEnvelope, label: "Email", value: "abhichaurasia016@gmail.com", href: `mailto: abhichaurasia016@gmail.com`, color: "#EA4335" },
+    { icon: FaPhone, label: "Phone", value: "+91 82994 23424", href: `tel:+918299423424`, color: "#34A853" },
     { icon: FaLinkedin, label: "LinkedIn", value: "linkedin.com/in/abhinavv016", href: "https://linkedin.com/in/abhinavv016", color: "#0A66C2" },
     { icon: FaGithub, label: "GitHub", value: "github.com/abhinavv016", href: "https://github.com/abhinavv016", color: "#24292F" },
     { icon: FaTwitter, label: "Twitter/X", value: "@abhinavv016", href: "https://twitter.com/abhinavv016", color: "#1DA1F2" },
