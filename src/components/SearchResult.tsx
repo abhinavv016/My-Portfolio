@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MoreVertical, ExternalLink } from "lucide-react";
 
 interface Sitelink {
-  label: string;
+  label: React.ReactNode;
   url: string;
   download?: boolean;
 }
@@ -24,7 +24,7 @@ interface SearchResultProps {
 
 const SearchResult: React.FC<SearchResultProps> = ({
   breadcrumb,
-  domain = "abhinav.dev",
+  domain = "abhinavv.xyz",
   title,
   description,
   onTitleClick,
@@ -104,7 +104,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
       {sitelinks.length > 0 && (
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-3">
           {sitelinks.map((link) => (
-            <div key={link.label} className="flex flex-col">
+            <div key={link.url} className="flex flex-col">
               <a
                 href={link.url}
                 download={link.download}

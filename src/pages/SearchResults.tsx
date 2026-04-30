@@ -28,8 +28,11 @@ import {
   GraduationCap,
   Briefcase,
   CheckCircle,
+  Download,
+  GraduationCapIcon,
+  Film,
 } from "lucide-react";
-import { FaPhone, FaTwitter, FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import Navbar from "../components/NavBar";
 
 /* ---------- Types & Interfaces ---------- */
@@ -58,16 +61,16 @@ const AboutResult: React.FC = () => (
     faviconColor="#4285F4"
     title="Abhinav Chaurasia – Aspiring Software Developer"
     description="B.Tech student at PSIT specializing in full-stack development with React, Next.js, and Node.js. Strong algorithmic foundation with 1,000+ DSA problems solved in C++, combined with hands-on experience building scalable, real-time systems including Reviewboxd and IntervueX."
-    breadcrumb="abhinav.dev › profile"
+    breadcrumb="abhinavv.xyz › profile"
     sitelinks={[
       {
-        label: "Download Resume (PDF)",
+        label: (
+          <span className="flex items-center gap-1">
+            Download Resume (PDF) <Download className="w-3 h-3" />
+          </span>
+        ),
         url: "/Abhinav_Chaurasia_Resume.pdf",
         download: true
-      },
-      {
-        label: "GitHub Repositories",
-        url: "https://github.com/abhinavv016"
       }
     ]}
   />
@@ -102,8 +105,8 @@ const SkillsResult: React.FC<{ delay?: number }> = ({ delay = 0 }) => (
     <div className="flex items-center gap-3">
       <div className="shrink-0 w-7 h-7 rounded-full bg-[#34A853] flex items-center justify-center text-white text-[12px] font-semibold">S</div>
       <div className="min-w-0">
-        <div className="text-[12px] text-[#4d5156] dark:text-[#bdc1c6]">abhinav.dev</div>
-        <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinav.dev › skills</div>
+        <div className="text-[12px] text-[#4d5156] dark:text-[#bdc1c6]">abhinavv.xyz</div>
+        <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinavv.xyz › skills</div>
       </div>
     </div>
     <h3 className="mt-1 text-[20px] leading-[26px] text-[#1a0dab] dark:text-[#8ab4f8] hover:underline cursor-pointer">
@@ -154,7 +157,7 @@ const AboutPanel: React.FC = () => (
       transition={{ duration: 0.4 }}
       className="max-w-[652px] border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-6"
     >
-      <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinav.dev › about</div>
+      <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinavv.xyz › about</div>
       <h1 className="text-[26px] leading-8 font-medium mt-1">About {PROFILE.name}</h1>
       <p className="mt-3 text-[15px] leading-[24px] text-[#3c4043] dark:text-[#e8eaed]">
         {PROFILE.about}
@@ -232,7 +235,7 @@ const SkillsPanel: React.FC = () => (
       animate={{ opacity: 1, y: 0 }}
       className="max-w-[652px]"
     >
-      <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinav.dev › skills</div>
+      <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinavv.xyz › skills</div>
       <h1 className="text-[26px] leading-8 font-medium mt-1">Abhinav - Skills & Stack</h1>
       <p className="mt-2 text-[14px] text-[#4d5156] dark:text-[#bdc1c6]">
         A snapshot of the tools and technologies I reach for, grouped by where they fit in the stack.
@@ -320,11 +323,12 @@ const ContactPanel: React.FC = () => {
 
   const items = [
     { icon: FaEnvelope, label: "Email", value: "abhichaurasia016@gmail.com", href: `mailto: abhichaurasia016@gmail.com`, color: "#EA4335" },
-    { icon: FaPhone, label: "Phone", value: "+91 82994 23424", href: `tel:+918299423424`, color: "#34A853" },
+    { icon: GraduationCapIcon, label: "Resume", value: "Download PDF", href: "/Abhinav_Chaurasia_Resume.pdf", color: "#34A853", download: true },
     { icon: FaLinkedin, label: "LinkedIn", value: "linkedin.com/in/abhinavv016", href: "https://linkedin.com/in/abhinavv016", color: "#0A66C2" },
     { icon: FaGithub, label: "GitHub", value: "github.com/abhinavv016", href: "https://github.com/abhinavv016", color: "#24292F" },
     { icon: FaTwitter, label: "Twitter/X", value: "@abhinavv016", href: "https://twitter.com/abhinavv016", color: "#1DA1F2" },
-    { icon: FaMapMarkerAlt, label: "Location", value: "Kanpur, India", color: "#FBBC04" },
+    { icon: Film, label: "Beyond Code", value: "Sci-fi reader • Cinephile", href: "https://letterboxd.com/abhi_0016/", color: "#EA4335"
+}
   ];
 
   return (
@@ -334,7 +338,7 @@ const ContactPanel: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-[652px]"
       >
-        <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinav.dev › contact</div>
+        <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinavv.xyz › contact</div>
         <h1 className="text-[26px] leading-8 font-medium mt-1 text-[#202124] dark:text-white">Get in touch with Abhinav</h1>
         <p className="mt-2 text-[14px] text-[#4d5156] dark:text-[#bdc1c6]">
           Have a project in mind, or just want to say hello? Reach out via any of the channels below.
@@ -525,7 +529,7 @@ const SearchResults: React.FC = () => {
                           <div className="px-4 pb-4 text-[14px] text-[#4d5156] dark:text-[#bdc1c6]">
                             {idx === 0 && PROFILE.about}
                             {idx === 1 && `${SKILLS.slice(0, 8).join(", ")}, and more.`}
-                            {idx === 2 && `Reach out at ${PROFILE.email} or call ${PROFILE.phone}.`}
+                            {idx === 2 && `Reach out at ${PROFILE.email} .`}
                             {idx === 3 && PROJECTS.map((p) => p.title.split(" – ")[0]).join(", ")}
                           </div>
                         </details>
@@ -603,7 +607,6 @@ const SearchResults: React.FC = () => {
                   { label: "Role", value: PROFILE.role },
                   { label: "Based in", value: PROFILE.location },
                   { label: "Email", value: PROFILE.email },
-                  { label: "Phone", value: PROFILE.phone },
                   {
                     label: "GitHub",
                     value: (
