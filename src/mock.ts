@@ -4,7 +4,6 @@ export const PROFILE = {
     tagline: "Crafting end-to-end web experiences with React, Node.js & cloud-native tooling.",
     location: "Uttar Pradesh, India",
     email: "abhichaurasia016@gmail.com",
-    phone: "+91 82994 23424",
     about:
         "Full-stack developer building scalable, real-time applications with React, Next.js, Node.js, and PostgreSQL. I solve problems with strong algorithmic thinking-600+ LeetCode problems-and ship products that perform at scale across web and browser extensions (Reviewboxd, IntervueX). I obsess over clean architectures, type-safe APIs, and UI that feels effortless.",
     shortBio:
@@ -123,8 +122,8 @@ export const PROJECTS = [
         id: "intervuex",
         title: "IntervueX – Mock Interview Platform",
         url: "IntervueX",
-        fullUrl: "https://github.com/abhinavv016/IntervueX",
-        breadcrumb: "intervuex.abhinav.dev › projects › intervuex",
+        fullUrl: "https://github.com/abhinavv016/Interview-Platform",
+        breadcrumb: "intervuex.abhinavv.xyz › projects › intervuex",
         description:
             "IntervueX is a real-time mock-interview platform that simulates technical interviews, evaluates answers, and produces feedback reports. Built with React, TypeScript, getStream and OpenAI.",
         tags: ["Next.js", "FastAPI", "OpenAI", "WebRTC"],
@@ -135,18 +134,18 @@ export const PROJECTS = [
         title: "ReviewBoxd – Social Reviews for Movies & Shows",
         url: "ReviewBoxd",
         fullUrl: "https://github.com/abhinavv016/ReviewBoxd",
-        breadcrumb: "reviewboxd.abhinav.dev › projects › reviewboxd",
+        breadcrumb: "reviewboxd.abhinavv.xyz › projects › reviewboxd",
         description:
             "A Letterboxd-inspired social platform for tracking, reviewing and discussing films and series. Features personalised feeds, watchlists, and friend activity. Built with React, Node.js and PostgreSQL.",
         tags: ["React", "Node.js", "PostgreSQL", "Redis"],
-        date: "Feb 04, 2024",
+        date: "Sep 25, 2025",
     },
     // {
     //     id: "consoled",
     //     title: "Consoled – A Browser-Based JS Playground",
-    //     url: "consoled.abhinav.dev",
-    //     fullUrl: "https://consoled.abhinav.dev",
-    //     breadcrumb: "consoled.abhinav.dev › projects › consoled",
+    //     url: "consoled.abhinavv.xyz",
+    //     fullUrl: "https://consoled.abhinavv.xyz",
+    //     breadcrumb: "consoled.abhinavv.xyz › projects › consoled",
     //     description:
     //         "Consoled is a fast, in-browser JavaScript & TypeScript playground with multi-file editing, npm imports and live console output. Built with React, esbuild-wasm and Monaco Editor.",
     //     tags: ["React", "TypeScript", "esbuild-wasm", "Monaco"],
