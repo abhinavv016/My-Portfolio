@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Sun, Moon, Grid3x3, User, Mail } from "lucide-react";
+import { Sun, Moon, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import AbhinavLogo from "../components/AbhinavLogo";
 import SearchBar from "../components/SearchBar";
@@ -7,6 +7,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "../mock";
+import MyProfileImage from "/MyProfileImage.png";
 
 const Home = () => {
   const { theme, toggleTheme } = useTheme();
@@ -28,29 +29,48 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
       {/* Top right links */}
-      <header className="flex items-center justify-end gap-4 px-6 py-4 text-[13px] font-medium">
-        <Link to="/search?tab=about&q=abhinav" className="hover:underline opacity-90">
-          About
-        </Link>
-        <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="hover:underline opacity-90">
-          GitHub
-        </a>
-        
-        <button
-          type="button"
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-          className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors"
-        >
-          {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-        </button>
-        <button aria-label="Apps" className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors">
-          <Grid3x3 className="w-5 h-5" />
-        </button>
-        <div className="w-9 h-9 rounded-full bg-linear-to-br from-[#4285F4] to-[#34A853] flex items-center justify-center text-white cursor-pointer">
-          <User className="w-5 h-5" />
+      <div className="relative z-10 flex items-center justify-between px-6 py-4 text-[15px] font-medium">
+        <div>
+          <Link to="/search?tab=about&q=abhinav" className="hover:underline opacity-90">
+            About
+          </Link>
         </div>
-      </header>
+
+        <div className="flex items-center gap-4">
+          <a href={SOCIAL_LINKS.email} target="_blank" rel="noreferrer" className="hover:underline opacity-90">
+            Gmail
+          </a>
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="hover:underline opacity-90">
+            GitHub
+          </a>
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors"
+          >
+            {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          </button>
+          <button aria-label="Apps" className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors">
+            <img
+              src="/icon.png"
+              alt="Apps"
+              className="w-6 h-6 object-contain"
+            />
+          </button>
+
+          <div className="relative p-[2px] rounded-full bg-conic from-[#4285F4] via-[#EA4335] to-[#34A853] flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95">
+            <div className="bg-background rounded-full p-[3px]">
+              <img
+                src={MyProfileImage}
+                alt="Abhinav's Profile"
+                className="w-8 h-8 rounded-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Center hero */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 -mt-10">

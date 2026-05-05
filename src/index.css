@@ -53,3 +53,14 @@
 .font-logo {
   font-family: "Product Sans", "Inter", system-ui, sans-serif;
 }
+
+@layer utilities {
+  .bg-conic {
+    background: conic-gradient(
+      #4285f4 0% 25%, 
+      #ea4335 25% 50%, 
+      #fbbc05 50% 75%, 
+      #34a853 75% 100%
+    );
+  }
+}

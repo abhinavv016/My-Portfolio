@@ -1,13 +1,15 @@
 import { Link, useLocation } from "react-router";
 import {
-  Sun, Moon, Settings, Grid3x3, User,
+  Sun, Moon,
   LayoutGrid, FolderGit2, Code2, Wrench,
-  IdCard, Mail, LucideIcon
+  IdCard, Mail, LucideIcon,
+  Share2
 } from "lucide-react";
 import AbhinavLogo from "./AbhinavLogo";
 import SearchBar from "./SearchBar";
 import { useTheme } from "../context/ThemeContext";
 import { motion } from "framer-motion";
+import MyProfileImage from "/MyProfileImage.png";
 
 interface Tab {
   id: string;
@@ -85,15 +87,25 @@ const Navbar = ({ query = "", activeTab = "all" }: NavbarProps) => {
           </button>
 
           <button type="button" aria-label="Settings" className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]">
-            <Settings className="w-5 h-5" />
+            <Share2 className="w-5 h-5" />
           </button>
 
-          <button type="button" aria-label="Apps" className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]">
-            <Grid3x3 className="w-5 h-5" />
+          <button aria-label="Apps" className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors">
+            <img
+              src="/icon.png"
+              alt="Apps"
+              className="w-6 h-6 object-contain"
+            />
           </button>
 
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#4285F4] to-[#34A853] flex items-center justify-center text-white cursor-pointer select-none">
-            <User className="w-5 h-5" />
+          <div className="relative p-[2px] rounded-full bg-conic from-[#4285F4] via-[#EA4335] to-[#34A853] flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95">
+            <div className="bg-background rounded-full p-[3px]">
+              <img
+                src={MyProfileImage}
+                alt="Abhinav's Profile"
+                className="w-8 h-8 rounded-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
