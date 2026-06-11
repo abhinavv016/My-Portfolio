@@ -69,7 +69,7 @@ const AboutResult: React.FC = () => (
             Download Resume (PDF) <Download className="w-3 h-3" />
           </span>
         ),
-        url: "/Abhinav_Chaurasia_Resume.pdf",
+        url: "/Resume.pdf",
         download: true
       }
     ]}
@@ -323,7 +323,7 @@ const ContactPanel: React.FC = () => {
 
   const items = [
     { icon: FaEnvelope, label: "Email", value: "abhichaurasia016@gmail.com", href: `mailto: abhichaurasia016@gmail.com`, color: "#EA4335" },
-    { icon: GraduationCapIcon, label: "Resume", value: "Download PDF", href: "/Abhinav_Chaurasia_Resume.pdf", color: "#34A853", download: true },
+    { icon: GraduationCapIcon, label: "Resume", value: "Download PDF", href: "/Resume.pdf", color: "#34A853", download: true },
     { icon: FaLinkedin, label: "LinkedIn", value: "linkedin.com/in/abhinavv016", href: "https://linkedin.com/in/abhinavv016", color: "#0A66C2" },
     { icon: FaGithub, label: "GitHub", value: "github.com/abhinavv016", href: "https://github.com/abhinavv016", color: "#24292F" },
     { icon: FaTwitter, label: "Twitter/X", value: "@abhinavv016", href: "https://twitter.com/abhinavv016", color: "#1DA1F2" },
