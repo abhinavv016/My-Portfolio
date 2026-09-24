@@ -37,6 +37,13 @@ const Home = () => {
         </div>
 
         <div className="flex items-center gap-4">
+          <a
+            href="/Resume.pdf"
+            download="Abhinav_Chaurasia_Resume.pdf"
+            className="hover:underline opacity-90"
+          >
+            Resume
+          </a>
           <a href={SOCIAL_LINKS.email} target="_blank" rel="noreferrer" className="hover:underline opacity-90">
             Gmail
           </a>
@@ -132,6 +139,7 @@ const Home = () => {
             <Link to="/search?tab=projects&q=projects" className="hover:underline">Projects</Link>
             <Link to="/search?tab=skills&q=skills" className="hover:underline">Skills</Link>
             <Link to="/search?tab=contact&q=abhinav" className="hover:underline">Contact</Link>
+            <a href="/Resume.pdf" download="Abhinav_Chaurasia_Resume.pdf" className="hover:underline">Resume</a>
           </div>
           <div className="flex items-center gap-5">
             <a

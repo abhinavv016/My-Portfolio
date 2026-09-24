@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import Footer from "../components/Footer";
 import KnowledgePanel from "../components/KnowledgePanel";
-import { CODING_PROFILES } from "../mock";
+import { useStats } from "../context/StatsContext";
 import { ChevronLeft, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import Navbar from "../components/NavBar";
@@ -21,8 +21,9 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ id }: ProfilePageProps) => {
     const navigate = useNavigate();
+    const { profiles, isLive } = useStats();
 
-    const cp = CODING_PROFILES.find((p) => p.id === id) as any;
+    const cp = profiles.find((p) => p.id === id) as any;
 
     if (!cp) return null;
     const accent = PROFILE_COLORS[id];
@@ -59,7 +60,7 @@ const ProfilePage = ({ id }: ProfilePageProps) => {
         );
     }
 
-    const others = CODING_PROFILES.filter((p) => p.id !== id);
+    const others = profiles.filter((p) => p.id !== id);
 
     return (
         <div className="min-h-screen flex flex-col bg-white dark:bg-[#202124] text-[#202124] dark:text-[#e8eaed]">
@@ -96,9 +97,17 @@ const ProfilePage = ({ id }: ProfilePageProps) => {
                                     <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">
                                         {cp.breadcrumb}
                                     </div>
-                                    <h1 className="text-[26px] leading-8 font-medium text-[#202124] dark:text-white">
-                                        Abhinav {cp.name}
-                                    </h1>
+                                    <div className="flex items-center gap-2">
+                                        <h1 className="text-[26px] leading-8 font-medium text-[#202124] dark:text-white">
+                                            Abhinav {cp.name}
+                                        </h1>
+                                        {isLive && (
+                                            <span className="inline-flex items-center gap-1.5 text-[11px] text-[#137333] dark:text-[#81c995] bg-[#e6f4ea] dark:bg-[#137333]/20 px-2 py-0.5 rounded-full font-medium">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-[#137333] dark:bg-[#81c995] animate-pulse" />
+                                                Live
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                             <p className="mt-3 text-[14px] text-[#4d5156] dark:text-[#bdc1c6]">

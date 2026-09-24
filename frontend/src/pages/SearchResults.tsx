@@ -13,10 +13,10 @@ import {
   SKILL_CATEGORIES,
   EXPERIENCE,
   EDUCATION,
-  CODING_PROFILES,
   RELATED_SEARCHES,
   SOCIAL_LINKS,
 } from "../mock";
+import { useStats } from "../context/StatsContext";
 import { motion } from "framer-motion";
 import {
   Search,
@@ -60,7 +60,7 @@ const AboutResult: React.FC = () => (
     faviconLetter="A"
     faviconColor="#4285F4"
     title="Abhinav Chaurasia – Aspiring Software Developer"
-    description="B.Tech student at PSIT specializing in full-stack development with React, Next.js, and Node.js. Strong algorithmic foundation with 1,000+ DSA problems solved in C++, combined with hands-on experience building scalable, real-time systems including Reviewboxd and IntervueX."
+    description="B.Tech student at PSIT specializing in full-stack development with React, Next.js, and Node.js. Strong algorithmic foundation with 1,000+ DSA problems solved in C++, combined with hands-on experience building scalable, real-time systems including Reviewboxd, IntervueX, and Consoled."
     breadcrumb="abhinavv.xyz › profile"
     sitelinks={[
       {
@@ -95,7 +95,7 @@ const ProjectsList: React.FC<{ delayBase?: number }> = ({ delayBase = 0 }) => (
   </>
 );
 
-const SkillsResult: React.FC<{ delay?: number }> = ({ delay = 0 }) => (
+const SkillsResult: React.FC<{ delay?: number; query?: string }> = ({ delay = 0, query = "abhinav" }) => (
   <motion.section
     initial={{ opacity: 0, y: 8 }}
     animate={{ opacity: 1, y: 0 }}
@@ -104,14 +104,22 @@ const SkillsResult: React.FC<{ delay?: number }> = ({ delay = 0 }) => (
   >
     <div className="flex items-center gap-3">
       <div className="shrink-0 w-7 h-7 rounded-full bg-[#34A853] flex items-center justify-center text-white text-[12px] font-semibold">S</div>
-      <div className="min-w-0">
+      <Link
+        to={`/search?tab=skills&q=${encodeURIComponent(query)}`}
+        className="min-w-0 group"
+      >
         <div className="text-[12px] text-[#4d5156] dark:text-[#bdc1c6]">abhinavv.xyz</div>
-        <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6]">abhinavv.xyz › skills</div>
-      </div>
+        <div className="text-[12px] text-[#4d5156] dark:text-[#9aa0a6] group-hover:underline">abhinavv.xyz › skills</div>
+      </Link>
     </div>
-    <h3 className="mt-1 text-[20px] leading-[26px] text-[#1a0dab] dark:text-[#8ab4f8] hover:underline cursor-pointer">
-      Abhinav – Skills & Tooling
-    </h3>
+    <Link
+      to={`/search?tab=skills&q=${encodeURIComponent(query)}`}
+      className="block w-fit mt-1"
+    >
+      <h3 className="text-[20px] leading-[26px] text-[#1a0dab] dark:text-[#8ab4f8] hover:underline cursor-pointer">
+        Abhinav – Skills & Tooling
+      </h3>
+    </Link>
     <p className="mt-1 text-[14px] text-[#4d5156] dark:text-[#bdc1c6]">
       Languages, frameworks and tooling Abhinav uses day-to-day. Click any tag to refine your search.
     </p>
@@ -129,23 +137,26 @@ const SkillsResult: React.FC<{ delay?: number }> = ({ delay = 0 }) => (
   </motion.section>
 );
 
-const ProfilesList: React.FC<{ navigate: NavigateFunction; delayBase?: number }> = ({ navigate, delayBase = 0 }) => (
-  <>
-    {CODING_PROFILES.map((cp, i) => (
-      <SearchResult
-        key={cp.id}
-        delay={delayBase + i * 0.05}
-        faviconLetter={cp.name.charAt(0)}
-        faviconColor={PROFILE_COLORS[cp.id]}
-        domain={cp.url.split("/")[0]}
-        breadcrumb={cp.breadcrumb}
-        title={cp.title}
-        description={cp.description}
-        onTitleClick={() => navigate(cp.internalRoute)}
-      />
-    ))}
-  </>
-);
+const ProfilesList: React.FC<{ navigate: NavigateFunction; delayBase?: number }> = ({ navigate, delayBase = 0 }) => {
+  const { profiles } = useStats();
+  return (
+    <>
+      {profiles.map((cp, i) => (
+        <SearchResult
+          key={cp.id}
+          delay={delayBase + i * 0.05}
+          faviconLetter={cp.name.charAt(0)}
+          faviconColor={PROFILE_COLORS[cp.id]}
+          domain={cp.url.split("/")[0]}
+          breadcrumb={cp.breadcrumb}
+          title={cp.title}
+          description={cp.description}
+          onTitleClick={() => navigate(cp.internalRoute)}
+        />
+      ))}
+    </>
+  );
+};
 
 /* ---------- Tab-specific richer panels ---------- */
 
@@ -165,6 +176,16 @@ const AboutPanel: React.FC = () => (
       <p className="mt-3 text-[15px] leading-[24px] text-[#3c4043] dark:text-[#e8eaed]">
         When I'm not coding, you'll find me lost in sci-fi novels, rewatching Nolan films, or debating why Interstellar's ending actually makes sense. Self-proclaimed nerd who appreciates elegant systems both in code and storytelling.
       </p>
+      <div className="mt-5 pt-4 border-t border-[#ecedef] dark:border-[#3c4043] flex items-center justify-between flex-wrap gap-3">
+        <span className="text-[13px] text-[#5f6368] dark:text-[#9aa0a6]">Looking for my complete CV?</span>
+        <a
+          href="/Resume.pdf"
+          download="Abhinav_Chaurasia_Resume.pdf"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white text-[13px] font-medium rounded-full shadow-sm transition"
+        >
+          <Download className="w-3.5 h-3.5" /> Download Resume (PDF)
+        </a>
+      </div>
     </motion.section>
 
     <motion.section
@@ -209,7 +230,7 @@ const AboutPanel: React.FC = () => (
       <div className="space-y-4">
         {EDUCATION.map((ed) => (
           <div
-            key={ed.school}
+            key={ed.school + ed.degree}
             className="border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-4"
           >
             <div className="flex items-baseline justify-between gap-3 flex-wrap">
@@ -369,7 +390,14 @@ const ContactPanel: React.FC = () => {
           );
 
           return isLink ? (
-            <a key={it.label} href={it.href} target="_blank" rel="noreferrer" className={commonClasses}>
+            <a
+              key={it.label}
+              href={it.href}
+              download={it.download ? "Abhinav_Chaurasia_Resume.pdf" : undefined}
+              target={it.download ? undefined : "_blank"}
+              rel="noreferrer"
+              className={commonClasses}
+            >
               {content}
             </a>
           ) : (
@@ -443,6 +471,7 @@ const SearchResults: React.FC = () => {
   const q = params.get("q") || "abhinav";
   const tab = params.get("tab") || "all";
   const navigate = useNavigate();
+  const { isLive } = useStats();
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -509,7 +538,7 @@ const SearchResults: React.FC = () => {
                   <div className="space-y-7">
                     <AboutResult />
                     <ProjectsList />
-                    <SkillsResult delay={0.25} />
+                    <SkillsResult delay={0.25} query={q} />
                     <ProfilesList navigate={navigate} delayBase={0.3} />
 
                     {/* People also ask */}
@@ -582,7 +611,15 @@ const SearchResults: React.FC = () => {
 
                 {tab === "profiles" && (
                   <div className="space-y-7">
-                    <h1 className="text-[22px] font-medium">Coding Profiles - Abhinav</h1>
+                    <div className="flex items-center gap-3">
+                      <h1 className="text-[22px] font-medium">Coding Profiles - Abhinav</h1>
+                      {isLive && (
+                        <span className="inline-flex items-center gap-1.5 text-[11px] text-[#137333] dark:text-[#81c995] bg-[#e6f4ea] dark:bg-[#137333]/20 px-2.5 py-0.5 rounded-full font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#137333] dark:bg-[#81c995] animate-pulse" />
+                          Live
+                        </span>
+                      )}
+                    </div>
                     <ProfilesList navigate={navigate} />
                   </div>
                 )}
@@ -607,6 +644,18 @@ const SearchResults: React.FC = () => {
                   { label: "Role", value: PROFILE.role },
                   { label: "Based in", value: PROFILE.location },
                   { label: "Email", value: PROFILE.email },
+                  {
+                    label: "Resume",
+                    value: (
+                      <a
+                        href="/Resume.pdf"
+                        download="Abhinav_Chaurasia_Resume.pdf"
+                        className="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline flex items-center gap-1 font-medium"
+                      >
+                        Download PDF
+                      </a>
+                    ),
+                  },
                   {
                     label: "GitHub",
                     value: (

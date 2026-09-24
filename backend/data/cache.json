@@ -1,0 +1,38 @@
+{
+  "leetcode": {
+    "solved": 600,
+    "easy": 293,
+    "medium": 277,
+    "hard": 30,
+    "contestRating": 1783,
+    "globalRank": "143,344",
+    "maxStreak": 31,
+    "badges": [
+      "365 Days Badge",
+      "100 Days Badge 2026",
+      "50 Days Badge 2026",
+      "50 Days Badge 2025",
+      "100 Days Badge 2024",
+      "50 Days Badge 2024"
+    ]
+  },
+  "codechef": {
+    "rating": 1403,
+    "stars": 2,
+    "division": "Div 3",
+    "globalRank": "54,486",
+    "countryRank": "51,131",
+    "contests": 18
+  },
+  "codeforces": {
+    "handle": "Drreader",
+    "rating": 919,
+    "maxRating": 919,
+    "rank": "Newbie",
+    "maxRank": "Newbie",
+    "contests": 5,
+    "problemsSolved": 83
+  },
+  "lastUpdated": "2026-09-24T08:45:02.040Z",
+  "isLive": true
+}

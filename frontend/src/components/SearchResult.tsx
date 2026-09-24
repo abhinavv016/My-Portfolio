@@ -107,7 +107,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
             <div key={link.url} className="flex flex-col">
               <a
                 href={link.url}
-                download={link.download}
+                download={link.download ? "Abhinav_Chaurasia_Resume.pdf" : undefined}
                 target={link.download ? undefined : "_blank"}
                 rel="noreferrer"
                 className="text-[#1a0dab] dark:text-[#8ab4f8] text-[14px] hover:underline flex items-center gap-1.5 w-fit font-medium"

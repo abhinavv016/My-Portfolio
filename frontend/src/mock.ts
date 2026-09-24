@@ -99,8 +99,8 @@ export const EDUCATION = [
     {
         school: "Pranveer Singh Institute Of Technology",
         degree: "Bachelor Of Technology, Computer Science & Engineering",
-        period: "2023 - 2027",
-        percent: "7.38",
+        period: "2023 - Present",
+        percent: "72.58%",
         detail: "Coursework: DSA, OS, DBMS, System Design.",
     },
     {
@@ -122,8 +122,8 @@ export const PROJECTS = [
         id: "intervuex",
         title: "IntervueX – Mock Interview Platform",
         url: "IntervueX",
-        fullUrl: "https://github.com/abhinavv016/Interview-Platform",
-        breadcrumb: "intervuex.abhinavv.xyz › projects › intervuex",
+        fullUrl: "https://intervue-x-nine.vercel.app/",
+        breadcrumb: "intervue-x-nine.vercel.app",
         description:
             "IntervueX is a real-time mock-interview platform that simulates technical interviews, evaluates answers, and produces feedback reports. Built with React, TypeScript, getStream and OpenAI.",
         tags: ["Next.js", "FastAPI", "OpenAI", "WebRTC"],
@@ -140,17 +140,17 @@ export const PROJECTS = [
         tags: ["React", "Node.js", "PostgreSQL", "Redis"],
         date: "Sep 25, 2025",
     },
-    // {
-    //     id: "consoled",
-    //     title: "Consoled – A Browser-Based JS Playground",
-    //     url: "consoled.abhinavv.xyz",
-    //     fullUrl: "https://consoled.abhinavv.xyz",
-    //     breadcrumb: "consoled.abhinavv.xyz › projects › consoled",
-    //     description:
-    //         "Consoled is a fast, in-browser JavaScript & TypeScript playground with multi-file editing, npm imports and live console output. Built with React, esbuild-wasm and Monaco Editor.",
-    //     tags: ["React", "TypeScript", "esbuild-wasm", "Monaco"],
-    //     date: "Sep 21, 2023",
-    // },
+    {
+        id: "consoled",
+        title: "Consoled – Terminal UI Component Library",
+        url: "Consoled",
+        fullUrl: "https://github.com/abhinavv016",
+        breadcrumb: "consoled.abhinavv.xyz › projects › consoled",
+        description:
+            "Engineered a custom component-based terminal UI framework in Go, implementing React-style declarative composition and a hooks-like state management API for CLI applications. Built a concurrent event loop using goroutines and channels to handle async input and screen re-renders without UI blocking.",
+        tags: ["Go", "ANSI Escape Codes", "Event Systems", "Layout Engines"],
+        date: "Ongoing",
+    },
 ];
 
 export const CODING_PROFILES = [
@@ -186,9 +186,9 @@ export const CODING_PROFILES = [
             "Abhinav's CodeChef profile - current rating, division, contests participated and problems solved across long, cookoff and starters.",
         internalRoute: "/profiles/codechef",
         stats: {
-            rating: 1353,
-            stars: 1,
-            division: "Div 4",
+            rating: 1403,
+            stars: 2,
+            division: "Div 3",
             globalRank: "54,486",
             countryRank: "51,131",
             contests: 18,
@@ -206,12 +206,12 @@ export const CODING_PROFILES = [
         internalRoute: "/profiles/codeforces",
         stats: {
             handle: "Drreader",
-            rating: 1687,
-            maxRating: 1742,
-            rank: "Expert",
-            maxRank: "Expert",
-            contests: 64,
-            problemsSolved: 1180,
+            rating: 919,
+            maxRating: 919,
+            rank: "Newbie",
+            maxRank: "Newbie",
+            contests: 5,
+            problemsSolved: 83,
         },
     },
 ];
@@ -227,6 +227,7 @@ export const SEARCH_SUGGESTIONS = [
     "abhinav skills",
     "abhinav contact",
     "abhinav intervuex project",
+    "abhinav consoled project",
 ];
 
 export const RELATED_SEARCHES = [
