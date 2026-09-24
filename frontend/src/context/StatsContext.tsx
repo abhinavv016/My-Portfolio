@@ -19,7 +19,8 @@ const StatsContext = createContext<StatsContextType>({
   refresh: async () => {},
 });
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+const rawApiUrl = import.meta.env.VITE_API_URL || "http://localhost:5001";
+const API_BASE_URL = rawApiUrl.replace(/\/+$/, "");
 
 export const StatsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [profiles, setProfiles] = useState<typeof CODING_PROFILES>(CODING_PROFILES);

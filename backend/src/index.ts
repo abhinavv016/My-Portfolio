@@ -12,6 +12,26 @@ const PORT = process.env.PORT || 5001;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
+// Normalize duplicate slashes in request URL (e.g. //api/stats -> /api/stats)
+app.use((req, _res, next) => {
+  if (req.url.includes("//")) {
+    req.url = req.url.replace(/\/+/g, "/");
+  }
+  next();
+});
+
+// Root welcome endpoint
+app.get("/", (_req, res) => {
+  res.json({
+    service: "portfolio-stats-api",
+    status: "active",
+    endpoints: {
+      stats: "/api/stats",
+      health: "/api/health",
+    },
+  });
+});
+
 // Health check endpoint
 app.get("/api/health", (_req, res) => {
   res.json({
